@@ -18,9 +18,19 @@ public class CodewarsSolution {
     //Array.diff
     public static int[] arrayDiff(int[] a, int[] b) {
 
-        return Arrays.stream(a).
-                filter(elemA -> Arrays.stream(b).noneMatch(elemB -> elemA == elemB))
+        return Arrays.stream(a)
+                .filter(elemA -> Arrays.stream(b).noneMatch(elemB -> elemA == elemB))
                 .toArray();
     }
 
+    //6 kyu
+    //Playing with digits
+    public static long digPow(int n, int p) {
+        long sum = 0;
+        String[] sepN = String.valueOf(n).split("");
+        for(int i = 0; i < sepN.length; i++){
+            sum += Math.pow(Double.parseDouble(sepN[i]), (p+i));
+        }
+        return sum % n == 0 ? sum / n : -1;
+    }
 }
