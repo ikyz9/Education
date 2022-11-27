@@ -1,8 +1,8 @@
 import codewars.CodewarsSolution;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CodewarsSolutionTest {
 
@@ -15,7 +15,7 @@ public class CodewarsSolutionTest {
     }
 
     @Test
-    public void sampleTests() {
+    public void arrayDiffTest() {
         assertArrayEquals(new int[] {2}, CodewarsSolution.arrayDiff(new int [] {1,2}, new int[] {1}));
         assertArrayEquals(new int[] {2,2}, CodewarsSolution.arrayDiff(new int [] {1,2,2}, new int[] {1}));
         assertArrayEquals(new int[] {1}, CodewarsSolution.arrayDiff(new int [] {1,2,2}, new int[] {2}));
@@ -47,5 +47,19 @@ public class CodewarsSolutionTest {
         assertEquals(0.0, CodewarsSolution.averageArraySquares(a4, b4), 1e-15);
     }
 
+    @Test
+    public void properFractionsTest() {
+        assertEquals(0, CodewarsSolution.properFractions(1));
+        assertEquals(1, CodewarsSolution.properFractions(2));
+        assertEquals(4, CodewarsSolution.properFractions(5));
+        assertEquals(8, CodewarsSolution.properFractions(15));
+        assertEquals(20, CodewarsSolution.properFractions(25));
+    }
+
+    @Test
+    @DisplayName("Valid input")
+    void testValidInput() {
+        assertTrue(CodewarsSolution.alphanumeric("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"));
+    }
 
 }
