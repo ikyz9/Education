@@ -1,8 +1,10 @@
 package codewars;
 
-//import java.util.Arrays;
-//import java.util.stream.Collectors;
-//import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import java.util.stream.IntStream;
 
 public class CodewarsSolution {
 
@@ -36,12 +38,11 @@ public class CodewarsSolution {
 
     //5 kyu
     //Mean Square Error
-    public static double averageArraySquares(int[] a, int[] b){
-        double sum =0;
-        for (int i =0; i< a.length; i++) {
-            sum += Math.pow(a[i] - b[i], 2);
-        }
-        return sum / a.length;
+    public static double averageArraySquares(int[] arr1, int[] arr2){
+        return IntStream.range(0, arr1.length)
+                .mapToDouble(i -> Math.pow(arr1[i] - arr2[i], 2))
+                .average()
+                .getAsDouble();
     }
 
 }
