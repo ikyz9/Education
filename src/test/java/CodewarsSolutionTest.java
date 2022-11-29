@@ -1,10 +1,13 @@
 import codewars.kyu4.ProperFractions;
 import codewars.kyu5.Alphanumeric;
 import codewars.kyu5.AverageArraySquares;
+import codewars.kyu5.PaginationHelper;
 import codewars.kyu6.ArrayDiff;
 import codewars.kyu6.DigPow;
 import codewars.kyu6.SpinWords;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,8 +60,24 @@ public class CodewarsSolutionTest {
     }
 
     @Test
-    void testValidInput() {
+    public void validInputTest() {
         assertTrue(Alphanumeric.alphanumeric("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"));
+    }
+
+    @Test
+    public void paginationHelperTest(){
+        PaginationHelper<Character> helper = new PaginationHelper(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f'), 4);
+        assertEquals(2, helper.pageCount());
+        assertEquals(6, helper.itemCount());
+        assertEquals(4, helper.pageItemCount(1));
+        assertEquals(2, helper.pageItemCount(2));
+        assertEquals(-1, helper.pageItemCount(3));
+        assertEquals(2, helper.pageIndex(5));
+        assertEquals(1, helper.pageIndex(2));
+        assertEquals(-1, helper.pageIndex(20));
+        assertEquals(-1, helper.pageIndex(-10));
+        assertEquals(-1, helper.pageIndex(0));
+
     }
 
 }
