@@ -1,6 +1,7 @@
 import codewars.kyu4.ProperFractions;
 import codewars.kyu5.Alphanumeric;
 import codewars.kyu5.AverageArraySquares;
+import codewars.kyu5.HumanReadableTime;
 import codewars.kyu5.PaginationHelper;
 import codewars.kyu6.ArrayDiff;
 import codewars.kyu6.DigPow;
@@ -78,6 +79,20 @@ public class CodewarsSolutionTest {
         assertEquals(-1, helper.pageIndex(-10));
         assertEquals(-1, helper.pageIndex(0));
 
+    }
+
+    @Test
+    public void makeReadableTest() {
+        assertEquals( "00:00:00", HumanReadableTime.firstMakeReadable(0));
+        assertEquals( "00:00:05", HumanReadableTime.firstMakeReadable(5));
+        assertEquals( "00:01:00", HumanReadableTime.firstMakeReadable(60));
+        assertEquals("23:59:59", HumanReadableTime.firstMakeReadable(86399));
+        assertEquals("99:59:59", HumanReadableTime.firstMakeReadable(359999));
+
+        assertEquals( "00:00:00", HumanReadableTime.secondMakeReadable(0));
+        assertEquals( "00:00:05", HumanReadableTime.secondMakeReadable(5));
+        assertEquals( "00:01:00", HumanReadableTime.secondMakeReadable(60));
+        assertEquals("23:59:59", HumanReadableTime.secondMakeReadable(86399));
     }
 
 }
