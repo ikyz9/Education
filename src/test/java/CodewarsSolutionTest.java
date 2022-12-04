@@ -1,8 +1,5 @@
 import codewars.kyu4.ProperFractions;
-import codewars.kyu5.Alphanumeric;
-import codewars.kyu5.AverageArraySquares;
-import codewars.kyu5.HumanReadableTime;
-import codewars.kyu5.PaginationHelper;
+import codewars.kyu5.*;
 import codewars.kyu6.ArrayDiff;
 import codewars.kyu6.DigPow;
 import codewars.kyu6.SpinWords;
@@ -93,6 +90,26 @@ public class CodewarsSolutionTest {
         assertEquals( "00:00:05", HumanReadableTime.secondMakeReadable(5));
         assertEquals( "00:01:00", HumanReadableTime.secondMakeReadable(60));
         assertEquals("23:59:59", HumanReadableTime.secondMakeReadable(86399));
+    }
+
+
+    @Test
+    public void generateDiagonalTest() {
+
+        long[] expected = new long[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        assertArrayEquals(expected, PascalDiagonals.generateDiagonal(0, 10));
+
+        expected = new long[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        assertArrayEquals(expected, PascalDiagonals.generateDiagonal(1, 10));
+
+        expected = new long[] { 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 };
+        assertArrayEquals(expected, PascalDiagonals.generateDiagonal(2, 10));
+
+        expected = new long[] { 1, 4, 10, 20, 35, 56, 84, 120, 165, 220 };
+        assertArrayEquals(expected, PascalDiagonals.generateDiagonal(3, 10));
+
+        expected = new long[] { 1, 5, 15, 35, 70, 126, 210, 330, 495, 715 };
+        assertArrayEquals(expected, PascalDiagonals.generateDiagonal(4, 10));
     }
 
 }
