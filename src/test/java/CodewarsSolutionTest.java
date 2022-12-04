@@ -112,4 +112,13 @@ public class CodewarsSolutionTest {
         assertArrayEquals(expected, PascalDiagonals.generateDiagonal(4, 10));
     }
 
+    @Test
+    public void productFibTest() {
+        long[] r = new long[] {55, 89, 1};
+        assertArrayEquals(r, ProdFib.productFib(4895));
+        long[] r1 = new long[] {89, 144, 0};
+        assertArrayEquals(r1
+                , ProdFib.productFib(5895));
+    }
+
 }
